@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="dashboard.css">
+        <title>figma dashboard</title>
+        <link rel="script" href="dashboard.js">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    
+    <body>
+        
+        <!--Sidebar-->
+        <section id="sidebar">
+            <ul class="side-menu">
+                <li class="active" id="icondash">
+                    <a onclick="myFunction()">
+                        <box-icon class="bx" name='grid-alt'></box-icon>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <box-icon class="bx" name='objects-horizontal-center'></box-icon>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <box-icon class="bx" name='book-open'></box-icon>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <box-icon class="bx" name='cog' ></box-icon>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <box-icon class="bx" name='send'></box-icon>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <box-icon class="bx" name='folder-plus'></box-icon>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!--Sidebar-->
+        <!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<box-icon name='bell' ></box-icon>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="WhatsApp Image 2023-07-13 at 17.34.53.jpeg">
+                <box-icon name='chevron-down' class="arrow"></box-icon>
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+        <!--MAIN-->
+    <section class="dash-bar">
+        <section class="main">
+            <div id="DIV1">
+            <div id="DIV-head">
+                <box-icon class="div-icon" name='star' ></box-icon>
+                <span  class="head-title">Task Completed</span>
+                <span class="head-num">08</span>
+                
+            </div>
+            <div id="Div-info1">
+                <canvas id="myChart1" style="width:40px;max-width:130px; height: 35px; margin-top: 0;"></canvas>
+                <div class="div-info-content">
+                    <div class="div-info-content1">
+                <span style="color: green; font-size: 18px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">10+ </span>
+                <span>more</span>
+                </div>
+                <span class="div-info-content2">from last week</span>
+                </div>
+                </div>
+            </div>
+            <div id="DIV2">
+                <div id="DIV-head2">
+                    <box-icon class="div-icon" name='folder-plus'></box-icon>              
+                    <span  class="head-title">New Task</span>
+                    <span class="head-num">10</span>
+                    
+                </div>
+                <div id="Div-info2">
+                    <canvas id="myChart2" style="width:40px;max-width:130px; height: 35px; margin-top: 0;"></canvas>
+                    <div class="div-info-content">
+                    <div class="div-info-content1">
+                    <span style="color: green; font-size: 18px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">10+ </span>
+                    <span>more</span>
+                    </div>
+                    <span class="div-info-content2">from last week</span>
+                    </div>
+                    </div>
+                </div>
+                <div id="DIV3">
+                    <div id="DIV-head3">
+                        <box-icon class="div-icon" name='calendar-week'></box-icon>     
+                        <span  class="head-title">Project Done</span>
+                        <span class="head-num">10</span>
+                        
+                    </div>
+                    <div id="Div-info3">
+                        <canvas id="myChart3" style="width:40px;max-width:130px; height: 35px; margin-top: 0;"></canvas>
+                        <div class="div-info-content">
+                            <div class="div-info-content1">
+                        <span style="color: green; font-size: 18px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">08+ </span>
+                        <span>more</span>
+                        </div>
+                        <span class="div-info-content2">from last week</span>
+                        </div>
+                        </div>
+                    </div>
+        </section>
+        <!--Main Dashboard-->
+        <section class="main-dash">
+            <div class="main-dash-header">
+                <h2>Task Done</h2>
+                <ul>
+                    <li><a href="##">Daily</a></li>
+                    <li><a href="##">Weekly</a></li>
+                    <li onclick="myFunction1()"><a href="##" id="monthly">Monthly</a></li>
+                </ul>
+            </div>
+            <div class="main-dashboard">
+                <canvas id="myChart" style="width:40px; max-width:800px; margin-top: 50px; height: 12px;"></canvas>
+            </div>
+        </section>
+        <!--Main Dashboard-->
+        <!--MAIN-->
+        <h2 style="color: gray; margin-left: -160px; margin-top: 30px;">Task</h2>
+        <div class="task1">
+            <div class="play-icon"><i class='bx bxs-caret-right-circle' ></i></div>
+            <div class="part">
+                <span>Start from</span>
+                <div class="time-part">
+                    <i class='bx bx-time' ></i>
+                    <span style="margin-top: 4px;">9:00 a.m.</span>
+                </div>
+            </div>
+            <div class="part">
+                <span>Search inspiration for project</span>
+                <div class="search-part">
+                    <i class='bx bx-link' ></i>
+                    <a href="www.uistore.com">www.uistore.com</a>
+                    <i class='bx bx-message-rounded-dots' ></i>
+                    <span>8 comments</span>
+                </div>
+            </div>
+            <div class="part">
+                <span>24% complete</span>
+                <div class="per-border">
+                    <div class="per-part" style="width:24%"></div>
+                  </div>
+            </div>
+            <button><i class='bx bx-stopwatch'></i>Reminder</button>
+        </div>
+        <div class="task1">
+            <div class="play-icon"><i class='bx bxs-caret-right-circle' ></i></div>
+            <div class="part">
+                <span>Start from</span>
+                <div class="time-part">
+                    <i class='bx bx-time' ></i>
+                    <span style="margin-top: 4px;">3:00 a.m.</span>
+                </div>
+            </div>
+            <div class="part">
+                <span>Search inspiration for project</span>
+                <div class="search-part">
+                    <i class='bx bx-link' ></i>
+                    <a href="www.uistore.com">www.uistore.com</a>
+                    <i class='bx bx-message-rounded-dots' ></i>
+                    <span>5 comments</span>
+                </div>
+            </div>
+            <div class="part">
+                <span>60% complete</span>
+                <div class="per-border2">
+                    <div class="per-part2" style="width:60%"></div>
+                  </div>
+            </div>
+            <button><i class='bx bx-stopwatch'></i>Reminder</button>
+        </div>
+    </section>    
+        <!-- CONTENT -->
+        <!--RightSideBar-->
+        <section class="rightbar">
+            <div class="rightbar-header">
+                <h2>Today's Schedule</h2>
+                <div class="header-icons">
+                <i class='bx bx-category' onclick="MyFunction()" id="selected-icon"></i>
+                <i class='bx bx-calendar-week'></i>
+                </div>
+            </div>
+            <div class="meeting-invite">
+                <ul>
+                <li>30 minutes call with Client</li>
+                <li style="cursor: pointer;">+ invite</li>
+                </ul>
+                <h4>Project Discovery Call</h4>
+            </div>
+            <div class="meeting-call">
+                <div class="members">
+                    <img src="WhatsApp Image 2023-07-13 at 17.34.53.jpeg">
+                    <img class="meeting-imgs" src="WhatsApp Image 2023-07-14 at 02.36.52 (1).jpeg">
+                    <img class="meeting-imgs2" src="WhatsApp Image 2023-07-14 at 02.36.52.jpeg">
+                    <img class="meeting-imgs3" src="r.jpeg">
+                </div>
+                <div class="meeting-time>" id="js-timer">
+                    <div id="timer" style="color: white;margin-top: 6px; margin-left: 35px;">00:00</div>
+                </div>
+                <div class="meeting-icons">
+                    <button id="startBtn" style="background: none; border: none;"><i class='bx bxs-phone-call' ></i></button>
+                    <i class='bx bx-dots-vertical-rounded'></i>
+                </div>
+            </div>
+            <div class="messages">
+                <h3>Messages</h3>
+                <div class="message">
+                    <div class="sender-img">
+                        <img src="WhatsApp Image 2023-07-13 at 17.34.53.jpeg">
+                    </div>
+                    <div class="sender-info">
+                        <h5 class="sender-name">Ro'ya Ehab</h5>
+                        <h6 class="message-content">Hi, How are you?</h6>
+                    </div>
+                </div>
+                <div class="message">
+                    <div class="sender-img">
+                        <img src="WhatsApp Image 2023-07-14 at 02.36.52 (1).jpeg">
+                    </div>
+                    <div class="sender-info">
+                        <h5 class="sender-name">Haneen Ehab Adel</h5>
+                        <h6 class="message-content">Awesome design</h6>
+                    </div>
+                </div>
+                <div class="message">
+                    <div class="sender-img">
+                        <img src="WhatsApp Image 2023-07-14 at 02.36.52.jpeg">
+                    </div>
+                    <div class="sender-info">
+                        <h5 class="sender-name">Kenzy</h5>
+                        <h6 class="message-content">Call me, please</h6>
+                    </div>
+                </div>
+                <div class="message">
+                    <div class="sender-img">
+                        <img src="r.jpeg">
+                    </div>
+                    <div class="sender-info">
+                        <h5 class="sender-name">Rawan Adel</h5>
+                        <h6 class="message-content">Do you need this design?</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="newTask">
+                <h3>New Task</h3>
+                <h5>Task title</h5>
+                <input type="text" placeholder="Create New">
+            </div>
+            <div class="emojis">
+                <ul>
+                    <li><i style="cursor: pointer;" class='bx bx-chevron-left'></i></li>
+                    <li>&#128512</li>
+                    <li>&#128513</li>
+                    <li>&#128525</li>
+                    <li>&#128526</li>
+                    <li>&#128557</li>
+                    <li>&#128577</li>
+                    <li>&#128580</li>
+                    <li>&#128540</li>
+                    <li>&#128527</li>
+                    <li><i style="cursor: pointer;" class='bx bx-chevron-right'></i></li>
+                </ul>
+            </div>
+            <div class="addcolab">
+                <h3>Add Cllaborators</h3>
+                <div class="collabs">
+                    <div class="collab">
+                        <img src="WhatsApp Image 2023-07-14 at 02.36.52 (1).jpeg">
+                        <span style="font-size: 11px; color: gray; padding-right: 15px; padding-top: 7px;">Roka</span>
+                    </div>
+                    <div class="collab">
+                        <img src="WhatsApp Image 2023-07-14 at 02.36.52.jpeg">
+                        <span style="font-size: 11px; color: gray; padding-top: 7px;">Bent Ehab</span>
+                    </div>
+                    <button><i style="cursor: pointer;" class='bx bx-chevron-right'></i></button>
+                </div>
+            </div>
+        </section>
+        <!--RightSideBar-->
+
+
+        <script>
+            function myFunction() {
+  document.getElementById("icondash").style.backgroundColor = "#007FB8";
+  document.getElementById("icondash").style.width = "40px";
+  document.getElementById("icondash").style.borderRadius = "35%";
+  document.getElementById("icondash").style.height = "35px";
+  document.getElementById("icondash").style.marginLeft = "13px";
+  document.getElementById("icondash").style.marginBottom = "13px";
+
+}
+function myFunction1(){
+    document.getElementById("monthly").style.color = "#007FB8";
+}
+function MyFunction(){
+    document.getElementById("selected-icon").style.color = "#e8e8e8";
+}
+const xValues = [100,200,300,400,500,600,700];
+const yValues = ["","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar","Apr",""];
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: yValues,
+    datasets: [{ 
+      data: [50,100,170,100,380,250,170,220,20,300,350,260,180,50],
+      borderColor: "navy",
+      fill: false,
+    },
+    {
+        data: [10,50,100,105,200,240,300,200,220,10,50,10,180,120],
+      borderColor: "lightblue",
+      fill: false
+    
+    }
+    
+]
+    
+},
+options: {
+    scales:{
+        xAxes: [{
+            gridLines: {
+                display:false
+            },
+            
+        }],
+        yAxes: [{
+            gridLines: {
+                display:false,
+            },
+
+            beginAtZero: true,
+            max: 400,
+            
+            ticks: {
+                stepSize: 100
+            }
+            
+        }],
+    }
+}
+}
+)
+new Chart("myChart1", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [8,22,2,45,25,70,55],
+      borderColor: "navy",
+      fill: false,
+    }
+]
+    
+},
+options: {
+    scales:{
+        xAxes: [{
+            gridLines: {
+                display:false
+            },
+            ticks: {
+          display: false
+        }
+        }],
+        yAxes: [{
+            gridLines: {
+                display:false
+            },
+            ticks: {
+          display: false
+        }
+        }],
+        
+}
+}
+}
+
+
+)
+new Chart("myChart2", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [8,22,2,45,25,70,55],
+      borderColor: "lightblue",
+      fill: false,
+    }
+]
+    
+},
+options: {
+    scales:{
+        xAxes: [{
+            gridLines: {
+                display:false
+            },
+            ticks: {
+          display: false
+        }
+        }],
+        yAxes: [{
+            gridLines: {
+                display:false
+            },
+            ticks: {
+          display: false
+        }
+        }],
+        
+}
+}
+}
+
+
+)
+new Chart("myChart3", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [8,22,2,45,25,70,55],
+      borderColor: "pink",
+      fill: false,
+    }
+]
+    
+},
+options: {
+    scales:{
+        xAxes: [{
+            gridLines: {
+                display:false
+            },
+            ticks: {
+          display: false
+        }
+        }],
+        yAxes: [{
+            gridLines: {
+                display:false
+            },
+            ticks: {
+          display: false
+        }
+        }],
+        
+}
+}
+}
+
+
+)
+
+
+const timeDisplay = document.querySelector("#timer");
+const startBtn = document.querySelector("#startBtn");
+
+let startTime = 0;
+let elapsedTime = 0;
+let currentTime = 0;
+let paused = true;
+let intervalId;
+let mins = 0;
+let secs = 0;
+
+startBtn.addEventListener("click", () => {
+    if(paused){
+        paused =false;
+        startTime = Date.now() - elapsedTime;
+        intervalId = setInterval(updateTime, 75);
+
+    }
+});
+    function updateTime(){
+        elapsedTime = Date.now() - startTime;
+
+        secs = Math.floor(elapsedTime / 1000 % 60);
+        mins = Math.floor(elapsedTime / (1000 * 60) % 60);
+
+
+    secs = pad(secs);
+    mins = pad(mins);
+        function pad(unit){
+            return(("0") + unit).length > 2 ? unit : "0" + unit;
+        }
+        document.getElementById("timer").innerHTML = mins + ":" + secs;
+    } 
+
+
+        </script>
+
+    </body>
+</html>
